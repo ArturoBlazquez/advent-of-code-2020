@@ -1,6 +1,6 @@
 import re
 
-from utils import read_file, print_part_1, print_part_2
+from utils import read_file, print_part_1, print_part_2, contains_all
 
 
 def parse_passports():
@@ -28,7 +28,7 @@ passports = parse_passports()
 # -- PART 1 -- #
 numValid = 0
 for passport in passports:
-    if all(elem in passport for elem in ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']):
+    if contains_all(passport, ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']):
         numValid += 1
 
 print_part_1(numValid)

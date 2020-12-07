@@ -1,4 +1,4 @@
-from utils import read_file, print_part_1, print_part_2
+from utils import read_file, print_part_1, print_part_2, duplicates
 
 lines = read_file('input.txt')
 groups = ' '.join(lines).split('  ')
@@ -14,12 +14,11 @@ print_part_1(num_questions)
 num_questions = 0
 for group in groups:
     people = group.split(' ')
-    for option_chosen_first_person in people[0]:
-        flag = True
-        for options_chosen_rest in people[1:]:
-            if option_chosen_first_person not in options_chosen_rest:
-                flag = False
-        if flag:
-            num_questions += 1
+
+    repeated = people[0]
+    for person in people[1:]:
+        repeated = duplicates(repeated + person)
+
+    num_questions += len(repeated)
 
 print_part_2(num_questions)
