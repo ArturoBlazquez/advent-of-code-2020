@@ -3,7 +3,6 @@ from utils import read_file, print_part_1, print_part_2, contains_any
 instructions = read_file('input.txt')
 
 # -- PART 1 -- #
-
 runt_instructions = []
 acc = 0
 current_instruction = 0
@@ -34,9 +33,11 @@ for i in range(len(instructions)):
 for instruction_to_change in instructions_with_nop_or_jmp:
     instructions_modified = instructions.copy()
     if 'jmp' in instructions_modified[instruction_to_change]:
-        instructions_modified[instruction_to_change] = instructions_modified[instruction_to_change].replace('jmp', 'nop')
+        instructions_modified[instruction_to_change] = instructions_modified[instruction_to_change].replace('jmp',
+                                                                                                            'nop')
     else:
-        instructions_modified[instruction_to_change] = instructions_modified[instruction_to_change].replace('nop', 'jmp')
+        instructions_modified[instruction_to_change] = instructions_modified[instruction_to_change].replace('nop',
+                                                                                                            'jmp')
 
     runt_instructions = []
     acc = 0
