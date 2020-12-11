@@ -1,3 +1,4 @@
+import functools
 import os
 import sys
 
@@ -36,3 +37,21 @@ def duplicates(my_list):
             repeated.append(x)
 
     return set(repeated)
+
+
+def lists_are_equal(list1, list2):
+    if len(list1) != len(list2):
+        return False
+
+    return functools.reduce(lambda x, y: x and y, map(lambda p, q: p == q, list1, list2), True)
+
+
+def matrix_are_equal(matrix1, matrix2):
+    if len(matrix1) != len(matrix2):
+        return False
+
+    for i in range(len(matrix1)):
+        if not lists_are_equal(matrix1[i], matrix2[i]):
+            return False
+
+    return True
