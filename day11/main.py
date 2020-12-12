@@ -1,4 +1,4 @@
-from utils import read_file, print_part_1, matrix_are_equal
+from utils import read_file, print_part_1, matrix_are_equal, print_part_2
 
 seat_layout = read_file('input.txt')
 
@@ -153,4 +153,4 @@ while not matrix_are_equal(next_layout, seat_layout):
     seat_layout = next_layout
     next_layout = get_next_layout_v2(seat_layout)
 
-print_part_1(sum([row.count('#') for row in seat_layout]))
+print_part_2(sum([row.count('#') for row in seat_layout]))
