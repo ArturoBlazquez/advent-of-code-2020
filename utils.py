@@ -76,3 +76,7 @@ def mul_inv(a, b):
         x0, x1 = x1 - q * x0, x0
     if x1 < 0: x1 += b0
     return x1
+
+
+def replace_index(string, position, letter):
+    return string[:position] + letter + string[position + 1:]
