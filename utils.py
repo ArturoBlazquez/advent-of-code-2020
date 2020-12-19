@@ -80,3 +80,7 @@ def mul_inv(a, b):
 
 def replace_index(string, position, letter):
     return string[:position] + letter + string[position + 1:]
+
+
+def binary(num, num_bits):
+    return bin(num)[2:].zfill(num_bits)
